@@ -1,0 +1,29 @@
+{
+  "name": "walk-the-dinosaur",
+  "version": "1.0.0",
+  "description": "Open the door, get on the floor... Everybody walk the dinosaur",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdiehl99/Walk-The-Dinosaur.git"
+  },
+  "keywords": [
+    "dinosaur",
+    "walk"
+  ],
+  "author": "Jodi Diehl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jdiehl99/Walk-The-Dinosaur/issues"
+  },
+  "homepage": "https://github.com/jdiehl99/Walk-The-Dinosaur#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "express-handlebars": "^3.0.0",
+    "path": "^0.12.7"
+  }
+}

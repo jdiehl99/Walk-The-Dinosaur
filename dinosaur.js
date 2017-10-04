@@ -15,11 +15,11 @@ function showPage(app, __dirname) {
     });
     // add new dino to list, left side, dinoToWalk array
     app.get("/dinonew", function (req, res) {
-        res.render("index", lunches[0]);
+        res.render("dino-new", lunches[0]);
     })
     // move dino to right side, dinoWalked array
     app.get("/dinodone", function (req, res) {
-        res.render("index", lunches[0]);
+        res.render("dino-done", lunches[0]);
     })
 }
 

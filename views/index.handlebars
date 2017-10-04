@@ -3,29 +3,12 @@
         {{{dinos_towalk}}}
     </div>
     <div class="col">
-        <button id="dinobtn">Walk the dinosaur!</button>
+        <button id="dinobtn">Add a dinosaur!</button>
+    </div>
+    <div id="dinolist" class="col">
+        <button id="donebtn">Walk the dinosaur!</button>
     </div>
     <div class="col">
         {{{dinos_done}}}
     </div>
 </div>
-<script>
-    $("#dinobtn").on("click", function (event) {
-            event.preventDefault();
-            console.log("dino button was pressed");
-
-            $.post("/dino/new", chkResults)
-                .done(function (data) {
-                    console.log(data);
-                });
-    });
-        $("#donebtn").on("click", function (event) {
-            event.preventDefault();
-            console.log("done button was pressed");
-
-            $.post("/dino/done", chkResults)
-                .done(function (data) {
-                    console.log(data);
-                });
-    });
-</script>

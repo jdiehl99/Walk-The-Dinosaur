@@ -1,15 +1,12 @@
-index
-<div class="row">
-    <div class="col">
-        {{{dinos_towalk}}}
-    </div>
-    <div class="col">
-        <button id="dinobtn">Add a dinosaur!</button>
-    </div>
-    <div id="dinolist" class="col">
-        <button id="donebtn">Walk the dinosaur!</button>
-    </div>
-    <div class="col">
-        {{{dinos_done}}}
-    </div>
+<div id="dinonew">
+    <form>
+        <input type="text" name="dinonew" size="50" placeholder="which dino do you want to walk?">
+        <button type="submit" class="btn btn-primary btn-md" id="dinbtn">Add a dinosaur!</button>
+    </form>
+</div>
+<div id="dinolist">
+    {{{dinos_towalk}}} <button id="donebtn">Walk the dinosaur!</button>
+</div>
+<div id="dinodone">
+    {{{dinos_done}}}
 </div>

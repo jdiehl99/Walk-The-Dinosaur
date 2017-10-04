@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname, + '/public'));
 
 var dinos = require("./dinosaur.js");
-dinoDo(app, __dirname);
+dinos(app, __dirname);
 
 app.listen(PORT, function() {
     console.log("app listining on PORT " + PORT);

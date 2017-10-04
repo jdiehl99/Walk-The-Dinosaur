@@ -13,8 +13,17 @@ app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname, + '/public'));
 
-var dinos = require("./dinosaur.js");
-dinos(app, __dirname);
+var dinoNew = require("./data/newDino.js");
+dinoNew(app, __dirname);
+
+var dinoDone = require("./data/walkedDino.js");
+dinoDone(app, __dirname);
+
+var apiRoutes = require("./routes/apiRoutes.js");
+apiRoutes(app, __dirname);
+
+var htmlRoutes = require("./routes/htmlRoutes.js");
+htmlRoutes(app, __dirname);
 
 app.listen(PORT, function() {
     console.log("app listining on PORT " + PORT);

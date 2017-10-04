@@ -4,15 +4,12 @@ const path = require("path");
 const app = express();
 
 var dinoToWalk = [];
-var dinoWalked = [];
 
-function dinoDo(app, __dirname) {
+
+function dinoNew(app, __dirname) {
 console.log("dino do function called");
 
-    // // show main page
-    app.get("/", function (req, res) {
-        res.render("index");
-    });
+
 //     // add new dino to list, left side, dinoToWalk array
 //     app.get("/dinonew", function (req, res) {
 //         res.render("dino-new", dinoToWalk);
@@ -23,4 +20,4 @@ console.log("dino do function called");
 //     });
 }
 
-module.exports = dinoDo;
+module.exports = dinoNew;

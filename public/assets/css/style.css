@@ -29,6 +29,9 @@ body {
 #mainBody {
     width: 80%;
     margin: 0 auto;
-    background-color: #fff;
-    min-height: 300px;
+    background-color: #fbfbfb;
+    min-height: 500px;
+}
+h2 {
+    color: #007bff;
 }

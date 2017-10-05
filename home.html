@@ -14,25 +14,37 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1>Walk the Dinosaur</h1>
-        <div id="dinonewBox">
-            <form>
-                <input type="text" name="dinonew" id="dinonew" size="50" placeholder="which dino do you want to walk?">
-                <button type="submit" class="btn btn-primary btn-md" id="dinobtn">Add a dinosaur!</button>
-            </form>
-        </div>
-        <div class="row">
-            <div class="col" id="dinolist">
-                <h2>Dinos to Walk</h2>
+    <div id="mainBody">
+        <div class="container">
+            <div id="row">
+                <div id="col-6">
+                    <h1>Walk the Dinosaur</h1>
+                </div>
+                <div id="col-6" class="text-right">
+                    <audio controls autoplay>
+                        <source src="https://desolate-hamlet-36931.herokuapp.com/public/assets/audio/Was-Not-Was-Walk-the-Dinosaur.mp3" type="audio/mpeg"> Your browser does not support the audio element.
+                    </audio>
+                </div>
             </div>
-            <div class="col" id="dinodone">
-                <h2>Walked Dinos</h2>
+
+            <div id="dinonewBox">
+                <form>
+                    <input type="text" name="dinonew" id="dinonew" size="50" placeholder="which dino do you want to walk?">
+                    <button type="submit" class="btn btn-primary btn-md" id="dinobtn">Add a dinosaur!</button>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col" id="dinolist">
+                    <h2>Dinos to Walk</h2>
+                </div>
+                <div class="col" id="dinodone">
+                    <h2>Walked Dinos</h2>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container text-center">
-        <a href="https://www.youtube.com/embed/zYKupOsaJmk" title="Bonus! Walk the Dinosaur Video at YouTube">Bonus! Check out the Walk the Dinosaur Video at YouTube</a>
+        <div class="container text-center">
+            <a href="https://www.youtube.com/embed/zYKupOsaJmk" title="Bonus! Walk the Dinosaur Video at YouTube">Bonus! Check out the Walk the Dinosaur Video at YouTube</a>
+        </div>
     </div>
     <script>
         $(document).on('click', '#dinobtn', function (event) {
@@ -54,18 +66,18 @@
         $(document).on('click', '#donebtn', function (event2) {
             event2.preventDefault();
             $("#dinolist").empty();
-            var moveIt = { 
+            var moveIt = {
                 dinoID: $(this).attr('dinoid'),
                 dinoName: $(this).attr('dinoname'),
-         };
+            };
 
             $.post("/dino/done", moveIt)
                 .done(function (dataDone) {
-                    console.log("dataDone",dataDone);
+                    console.log("dataDone", dataDone);
                     // update left div to show dino removed from list
                     $("#dinolist").html('<h2>Dinos to Walk</h2><br/>');
                     for (i = 0; i < dataDone.sdinoLeft.length; i++) {
-                        $("#dinolist").append([i]+'. ' + dataDone.sdinoLeft[i].name + ' <button type="button" id="donebtn" dinoid="' + [i] + '" dinoname="' + dataDone.sdinoLeft[i].name + '" class="btn btn-outline-secondary">Walk the dinosaur!</button><br/>');
+                        $("#dinolist").append([i] + '. ' + dataDone.sdinoLeft[i].name + ' <button type="button" id="donebtn" dinoid="' + [i] + '" dinoname="' + dataDone.sdinoLeft[i].name + '" class="btn btn-outline-secondary">Walk the dinosaur!</button><br/>');
                     }
 
                     // update right div to show new dino added to list
@@ -80,10 +92,6 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
         crossorigin="anonymous"></script>
-        <audio controls autoplay>
-                <source src="https://desolate-hamlet-36931.herokuapp.com/public/assets/audio/Was-Not-Was-Walk-the-Dinosaur.mp3" type="audio/mpeg">
-                Your browser does not support the audio element.
-              </audio>
 </body>
 
 </html>

@@ -6,7 +6,7 @@ var app = express();
 function showPage(app, __dirname) {
     // // show main page
     app.get("/", function (req, res) {
-        res.render("main");
+        res.render("index");
     });
 
 

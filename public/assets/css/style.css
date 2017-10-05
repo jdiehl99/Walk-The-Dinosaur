@@ -30,4 +30,5 @@ body {
     width: 80%;
     margin: 0 auto;
     background-color: #fff;
+    min-height: 300px;
 }

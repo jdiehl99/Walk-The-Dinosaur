@@ -31,7 +31,7 @@
             event.preventDefault();
 
             var doADino = { name: $('#dinonew').val().trim() };
-
+           $('#dinonew').val('');
             $.post("/dino/new", doADino)
                 .done(function (dataNew) {
 

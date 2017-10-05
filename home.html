@@ -35,33 +35,46 @@
         <iframe width="560" height="315" src="https://www.youtube.com/embed/zYKupOsaJmk" frameborder="0" allowfullscreen></iframe>
     </div>
     <script>
-        $("#dinobtn").on("click", function (event) {
+        $(document).on('click', '#dinobtn', function (event) {
             event.preventDefault();
-            console.log("dino button was pressed");
 
             var doADino = { name: $('#dinonew').val().trim() };
 
             $.post("/dino/new", doADino)
                 .done(function (dataNew) {
-                    console.log(dataNew);
 
                     // update div to show new dino added to list
                     $("#dinolist").html('<h2>Dinos to Walk</h2><br/>');
                     for (i = 0; i < dataNew.length; i++) {
-                        $("#dinolist").append([i] + dataNew[i].name + ' <button type="button" id="donetb" dinodid=' + [i] + '" class="btn btn-outline-secondary">Walk the dinosaur!</button><br/>');
+                        $("#dinolist").append([i] + '. ' + dataNew[i].name + ' <button type="button" id="donebtn" dinoid="' + [i] + '" dinoname="' + dataNew[i].name + '" class="btn btn-outline-secondary">Walk the dinosaur!</button><br/>');
                     }
 
                 });
         });
-        // $("#donebtn").on("click", function (event) {
-        //     event.preventDefault();
-        //     console.log("done button was pressed");
+        $(document).on('click', '#donebtn', function (event2) {
+            event2.preventDefault();
+            $("#dinolist").empty();
+            var moveIt = { 
+                dinoID: $(this).attr('dinoid'),
+                dinoName: $(this).attr('dinoname'),
+         };
 
-        //     $.post("/dino/done", chkResults)
-        //         .done(function (dataDone) {
-        //             console.log(dataDone);
-        //         });
-        // });
+            $.post("/dino/done", moveIt)
+                .done(function (dataDone) {
+                    console.log("dataDone",dataDone);
+                    // update left div to show dino removed from list
+                    $("#dinolist").html('<h2>Dinos to Walk</h2><br/>');
+                    for (i = 0; i < dataDone.sdinoLeft.length; i++) {
+                        $("#dinolist").append([i]+'. ' + dataDone.sdinoLeft[i].name + ' <button type="button" id="donebtn" dinoid="' + [i] + '" dinoname="' + dataDone.sdinoLeft[i].name + '" class="btn btn-outline-secondary">Walk the dinosaur!</button><br/>');
+                    }
+
+                    // update right div to show new dino added to list
+                    $("#dinodone").html('<h2>Walked Dinos</h2><br/>');
+                    for (j = 0; j < dataDone.sdinoRight.length; j++) {
+                        $("#dinodone").append(dataDone.sdinoRight[j].dinoName + '<br/>');
+                    }
+                });
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
         crossorigin="anonymous"></script>

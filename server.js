@@ -13,11 +13,11 @@ app.use(bodyParser.urlencoded({extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname, + '/public'));
 
-var dinoNew = require("./data/newDino.js");
-dinoNew(app, __dirname);
+// var dinoNew = require("./data/newDino.js");
+// dinoNew(app, __dirname);
 
-var dinoDone = require("./data/walkedDino.js");
-dinoDone(app, __dirname);
+// var dinoDone = require("./data/walkedDino.js");
+// dinoDone(app, __dirname);
 
 var apiRoutes = require("./routes/apiRoutes.js");
 apiRoutes(app, __dirname);

@@ -1,0 +1,12 @@
+DROP DATABASE IS EXISTS dino_db;
+CREATE DATABASE dino_db;
+
+USE dino_db;
+
+CREATE TABLE walkDino (
+    id INT(11) AUTO_INCREMENT NOT NULL,
+    dinoName VARCHAR(255),
+    walked BOOLEAN DEFAULT FALSE
+    PRIMARY KEY (id)
+);
+

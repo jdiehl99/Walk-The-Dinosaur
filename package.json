@@ -25,6 +25,7 @@
     "express": "^4.16.1",
     "express-handlebars": "^3.0.0",
     "fs": "0.0.1-security",
+    "mysql": "^2.15.0",
     "path": "^0.12.7"
   }
 }

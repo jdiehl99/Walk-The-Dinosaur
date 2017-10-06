@@ -14,7 +14,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname, + '/public'));
 
 // var dinoNew = require("./data/newDino.js");
-// dinoNew(app, __dirname);
 
 // var dinoDone = require("./data/walkedDino.js");
 // dinoDone(app, __dirname);
@@ -26,5 +25,5 @@ var htmlRoutes = require("./routes/htmlRoutes.js");
 htmlRoutes(app, __dirname);
 
 app.listen(PORT, function() {
-    console.log("app listining on PORT " + PORT);
+    console.log("app listening on PORT " + PORT);
 });
